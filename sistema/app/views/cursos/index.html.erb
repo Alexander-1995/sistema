@@ -1,0 +1,31 @@
+<div align="center">
+	<%= link_to "Adicionar novo curso", :action => "new" %>
+</div>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Créditos</th>
+			<th>Título</th>
+			<th>Turno</th>
+			<th>Modalidade</th>
+			<th>Número de alunos cadastrados</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cursos.sort_by {|curso| curso.nome }.each do |single| %>
+		<tr>
+			<td align="center"><%= link_to single.nome, curso_path(single) %></td>
+			<td align="center"><%= single.creditos%></td>
+			<td align="center"><%= single.titulo%></td>
+			<td align="center"><%= single.turno%></td>
+			<td align="center"><%= single.modalidade%></td>
+			<td align="center"><%= single.alunos.length%></td>
+			
+		</tr>
+	<%end%>
+	</tbody>
+
+</table>

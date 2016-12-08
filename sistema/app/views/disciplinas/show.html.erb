@@ -1,0 +1,10 @@
+<h1><%= @disciplina.nome%></h1>
+
+<% Resultado.ordena_por_semestre(@disciplina.resultados).reverse.each do |resultado| %>
+	<%=resultado.semestre%>
+	<%=resultado.mencao%>
+	<br>
+	<%=resultado.comentario%>
+	<br>	
+<% end %>
+

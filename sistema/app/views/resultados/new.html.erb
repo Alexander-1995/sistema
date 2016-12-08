@@ -1,0 +1,29 @@
+Insira sua nota de:
+<h1><%= @disciplina.nome%></h1>
+<%= form_for @resultado,
+	url: aluno_resultados_path,
+	method: :post do |f| %>
+
+		<div class="field">
+	    	<%= f.label :mencao %>
+	    	<%= f.select(:mencao, Resultado.possiveis_mencoes) %>
+	  </div>
+
+	  <div class="field">
+	    	<%= f.label :semestre %>
+	    	<%= f.select(:semestre, Aluno.possiveis_semestres) %>
+	  </div>
+
+		<div class="field">
+	    	<%= f.label :comentario %>
+	    	<%= f.text_area(:comentario) %>
+	  </div>
+	  
+	  	
+	  	<%= f.hidden_field :disciplina_id, :value => @disciplina.id %>
+
+	  	<div class="actions">
+    		<%= f.submit "Salvar resultado" %>
+  		</div>
+
+ <% end %>
